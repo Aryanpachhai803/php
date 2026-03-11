@@ -1,4 +1,5 @@
 <?php
+
 $stdname = null;
 $stdaddress = null;
 $stdbatch = null;
@@ -28,7 +29,6 @@ if (isset($_POST['submit'])) {
 
     $stdDOB = $_POST['stdDOB'];
     echo $stdDOB ."<br>";
-
 }
 ?>
 
