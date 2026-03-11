@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
 <body>
     <form method="POST" action="#">
         <label for="username"> Username </label>
-        <input type="text" placeholder="Enter Username" id="username" name="username">
+        <input type="text" placeholder="Enter Username" id="username" name="username" required>
         <input type="submit" name="submit" />
     </form>
 </body>
