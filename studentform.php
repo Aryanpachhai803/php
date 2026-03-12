@@ -6,29 +6,29 @@ $stdbatch = null;
 $stdemail = null;
 $stdcontact = null;
 if (isset($_POST['submit'])) {
-    $stdname = $_POST['stdname'];
-    echo $stdname ."<br>";
+    $stdname = $_POST['stdname']; 
+    echo "Name:" . $stdname ."<br>";
 
     $stdaddress = $_POST['stdaddress'];
-    echo $stdaddress ."<br>";
+    echo "Address:" . $stdaddress ."<br>";
 
     $stdgender = $_POST['stdgender'];
-    echo $stdgender ."<br>";
+    echo "Gender:" . $stdgender ."<br>";
 
     $stdbatch = $_POST['stdbatch'];
-    echo $stdbatch ."<br>";
+    echo "Batch:" . $stdbatch ."<br>";
 
     $stdfaculty = $_POST['stdfaculty'];
-    echo $stdfaculty ."<br>";
+    echo "Faculty:" . $stdfaculty ."<br>";
 
     $stdemail = $_POST['stdemail'];
-    echo $stdemail ."<br>";
+    echo "Email:" . $stdemail ."<br>";
 
     $stdcontact = $_POST['stdcontact'];
-    echo $stdcontact ."<br>";
+    echo "Contact:" . $stdcontact ."<br>";
 
     $stdDOB = $_POST['stdDOB'];
-    echo $stdDOB ."<br>";
+    echo "DOB:" . $stdDOB ."<br>";
 }
 ?>
 
@@ -67,8 +67,21 @@ if (isset($_POST['submit'])) {
     }
 
     label {
+        display: inline-block;
         font-weight: bold;
+        text-align: left;
+        width: 90px;
+    }
 
+    #genderStd{
+        width: 5px;
+    }
+
+    #facultyStd{
+        width: 5px;
+    }
+    input{
+        width: 150px;
     }
 
     #btn {
@@ -95,15 +108,15 @@ if (isset($_POST['submit'])) {
             <input type="text" placeholder="Enter your address" id="stdaddress" name="stdaddress" required>
             <br><br>
             <label for="stdgender">Gender</label>
-            <input type="radio" name="stdgender" id="male" value="Male"> <label for="male">Male</label>
-            <input type="radio" name="stdgender" id="female" value="Female"><label for="female">Female</label>
+            <input type="radio" name="stdgender" id="male" value="Male"> <label for="male" id="genderStd">Male</label>
+            <input type="radio" name="stdgender" id="female" value="Female"><label for="female" id="genderStd">Female</label>
             <br><br>
             <label for="stdbatch">Batch</label>
             <input type="number" placeholder="Enter your batch" name="stdbatch" id="stdbatch" required>
             <br><br>
             <label for="stdfaculty">Faculty</label>
-            <input type="radio" name="stdfaculty" id="BCA" value="BCA"><label for="BCA">BCA</label>
-            <input type="radio" name="stdfaculty" id="BSCIT" value="BSCIT"><label for="BSCIT">BSCIT</label>
+            <input type="radio" name="stdfaculty" id="BCA" value="BCA"><label for="BCA" id="facultyStd">BCA</label>
+            <input type="radio" name="stdfaculty" id="BSCIT" value="BSCIT"><label for="BSCIT" id="facultyStd">BSCIT</label>
             <br><br>
             <label for="stdemail">Email</label>
             <input type="email" placeholder="Enter your email" name="stdemail" id="stdemail" required>
