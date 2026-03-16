@@ -1,34 +1,60 @@
 <?php
-
-$stdname = null;
-$stdaddress = null;
-$stdbatch = null;
-$stdemail = null;
-$stdcontact = null;
 if (isset($_POST['submit'])) {
-    $stdname = $_POST['stdname']; 
-    echo "Name:" . $stdname ."<br>";
 
+    $stdname = $_POST['stdname'];
     $stdaddress = $_POST['stdaddress'];
-    echo "Address:" . $stdaddress ."<br>";
-
-    $stdgender = $_POST['stdgender'];
-    echo "Gender:" . $stdgender ."<br>";
-
+    $stdgender = isset($_POST['stdgender']) ? $_POST['stdgender'] : "";
     $stdbatch = $_POST['stdbatch'];
-    echo "Batch:" . $stdbatch ."<br>";
-
-    $stdfaculty = $_POST['stdfaculty'];
-    echo "Faculty:" . $stdfaculty ."<br>";
-
+    $stdfaculty = isset($_POST['stdfaculty']) ? $_POST['stdfaculty'] : "";
     $stdemail = $_POST['stdemail'];
-    echo "Email:" . $stdemail ."<br>";
-
     $stdcontact = $_POST['stdcontact'];
-    echo "Contact:" . $stdcontact ."<br>";
-
     $stdDOB = $_POST['stdDOB'];
-    echo "DOB:" . $stdDOB ."<br>";
+
+    if (!preg_match("/^[a-zA-Z0-9@._$#*-]{5,}/m", $stdname)) {
+        echo "<h3>Invalid student name</h3>";
+    } else {
+        echo "Name: $stdname <br>";
+    }
+
+    if ($stdaddress == null || $stdaddress == " ") {
+        echo "<h3>Invalid Address</h3>";
+    } else {
+        echo "Address: $stdaddress <br>";
+    }
+
+    if ($stdgender != "Male" && $stdgender != "Female") {
+        echo "<h3>Invalid Gender</h3>";
+    } else {
+        echo "Gender: $stdgender <br>";
+    }
+
+    if (!preg_match("/^[0-9]{4}/m", $stdbatch)) {
+        echo "<h3>Invalid Batch Number</h3>";
+    } 
+    else {
+        echo "Batch: $stdbatch <br>";
+    }
+
+    if ($stdfaculty != "BCA" && $stdfaculty != "BCSIT") {
+        echo "<h3>Invalid Faculty</h3>";
+    } else {
+        echo "Faculty: $stdfaculty <br>";
+    }
+
+    if (!preg_match("/^[a-zA-Z0-9]{3,}@[a-zA-Z]{3,}.[a-zA-Z]{2,}/m", $stdemail)) {
+        echo "<h3>Invalid Email</h3>";
+    } else {
+        echo "Email: $stdemail <br>";
+    }
+
+    if (!preg_match("/^[0-9]{10}$/", $stdcontact)) {
+        echo "<h3>Invalid Contact Number</h3>";
+    } else {
+        echo "Contact: $stdcontact <br>";
+    }
+
+    echo "DOB: $stdDOB <br>";
+
 }
 ?>
 
@@ -73,14 +99,15 @@ if (isset($_POST['submit'])) {
         width: 90px;
     }
 
-    #genderStd{
+    #genderStd {
         width: 5px;
     }
 
-    #facultyStd{
+    #facultyStd {
         width: 5px;
     }
-    input{
+
+    input {
         width: 150px;
     }
 
@@ -102,30 +129,32 @@ if (isset($_POST['submit'])) {
         <div id="container">
             <h1>Student Form</h1>
             <label for="stdname">Name</label>
-            <input type="text" placeholder="Enter your name" id="stdname" name="stdname" required>
+            <input type="text" placeholder="Enter your name" id="stdname" name="stdname">
             <br><br>
             <label for="stdaddress">Address</label>
-            <input type="text" placeholder="Enter your address" id="stdaddress" name="stdaddress" required>
+            <input type="text" placeholder="Enter your address" id="stdaddress" name="stdaddress">
             <br><br>
             <label for="stdgender">Gender</label>
             <input type="radio" name="stdgender" id="male" value="Male"> <label for="male" id="genderStd">Male</label>
-            <input type="radio" name="stdgender" id="female" value="Female"><label for="female" id="genderStd">Female</label>
+            <input type="radio" name="stdgender" id="female" value="Female"><label for="female"
+                id="genderStd">Female</label>
             <br><br>
             <label for="stdbatch">Batch</label>
-            <input type="number" placeholder="Enter your batch" name="stdbatch" id="stdbatch" required>
+            <input type="number" placeholder="Enter your batch" name="stdbatch" id="stdbatch">
             <br><br>
             <label for="stdfaculty">Faculty</label>
             <input type="radio" name="stdfaculty" id="BCA" value="BCA"><label for="BCA" id="facultyStd">BCA</label>
-            <input type="radio" name="stdfaculty" id="BSCIT" value="BSCIT"><label for="BSCIT" id="facultyStd">BSCIT</label>
+            <input type="radio" name="stdfaculty" id="BSCIT" value="BSCIT"><label for="BSCIT"
+                id="facultyStd">BSCIT</label>
             <br><br>
             <label for="stdemail">Email</label>
-            <input type="email" placeholder="Enter your email" name="stdemail" id="stdemail" required>
+            <input type="email" placeholder="Enter your email" name="stdemail" id="stdemail">
             <br><br>
             <label for="stdcontact">Contact</label>
-            <input type="number" placeholder="Enter your number" name="stdcontact" id="stdcontact" required>
+            <input type="number" placeholder="Enter your number" name="stdcontact" id="stdcontact">
             <br><br>
             <label for="stdDOB">DOB</label>
-            <input type="date" id="stdDOB" name="stdDOB" required>
+            <input type="date" id="stdDOB" name="stdDOB">
             <br><br>
             <input type="submit" name="submit" id="btn">
         </div>
