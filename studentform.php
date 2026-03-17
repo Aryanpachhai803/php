@@ -30,8 +30,7 @@ if (isset($_POST['submit'])) {
 
     if (!preg_match("/^[0-9]{4}/m", $stdbatch)) {
         echo "<h3>Invalid Batch Number</h3>";
-    } 
-    else {
+    } else {
         echo "Batch: $stdbatch <br>";
     }
 
