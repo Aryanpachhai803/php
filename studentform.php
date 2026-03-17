@@ -1,4 +1,5 @@
 <?php
+include("database.php");    
 if (isset($_POST['submit'])) {
 
     $stdname = $_POST['stdname'];
